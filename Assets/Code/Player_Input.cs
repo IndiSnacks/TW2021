@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Input : MonoBehaviour
 {
-    public float move_speed = 5;
+    public float move_speed = 500;
     public float dash_speed = 60000;
     public Rigidbody2D player_rb;
 
@@ -23,6 +23,6 @@ public class Player_Input : MonoBehaviour
     void FixedUpdate() 
     {
         //moves the player around the screen
-        player_rb.MovePosition(player_rb.position + movement_direction * move_speed * Time.fixedDeltaTime);
+        player_rb.velocity =  new Vector2(movement_direction.x, movement_direction.y) * move_speed * Time.deltaTime;
     }
 }
