@@ -17,6 +17,7 @@ public class Player_Input : MonoBehaviour
         //gets the up down left righ input
        movement_direction.x = Input.GetAxisRaw("Horizontal");
        movement_direction.y = Input.GetAxisRaw("Vertical");
+        dash_movment = Input.GetKey(KeyCode.LeftShift);
     }
 
     //Moving the player 
@@ -24,5 +25,12 @@ public class Player_Input : MonoBehaviour
     {
         //moves the player around the screen
         player_rb.velocity =  new Vector2(movement_direction.x, movement_direction.y) * move_speed * Time.deltaTime;
+
+        //dash
+        if(dash_movment == true)
+        {
+            Debug.Log("Woosh");
+            player_rb.AddForceAtPosition(player_rb.velocity * dash_speed * Time.deltaTime, movement_direction);
+        }
     }
 }

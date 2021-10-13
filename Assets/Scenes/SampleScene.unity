@@ -246,7 +246,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &557823744
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -325,8 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d645ec06d55a6499b8043b1a97bfdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 5
-  dash_speed: 100
+  move_speed: 500
+  dash_speed: 5000
   player_rb: {fileID: 557823743}
 --- !u!58 &557823747
 CircleCollider2D:
