@@ -328,7 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_speed: 10
   move_friction: 15
-  dash_speed: 100
+  dash_speed: 10
   transform: {fileID: 557823745}
   ch: {fileID: 557823748}
 --- !u!58 &557823747

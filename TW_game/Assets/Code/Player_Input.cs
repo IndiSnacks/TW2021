@@ -14,9 +14,13 @@ public class Player_Input : MonoBehaviour
     Vector2 movement_direction;
     Vector2 velocity;
 
-    bool dash_movment;
+    bool dash;
 
     public CollisionHelper ch;
+
+    void Start() {
+
+    }
 
     //getting player input
     void Update()
@@ -43,6 +47,11 @@ public class Player_Input : MonoBehaviour
         //moves the player around the screen
         Vector2 diff = movement_direction - velocity;
         velocity += move_friction * diff * Time.fixedDeltaTime;
+
+        if(!dash && Input.GetKeyDown("space")) {
+          dash = true;
+          velocity += dash_speed * movement_direction;
+        }
 
         transform.Translate(velocity * Time.fixedDeltaTime);
     }
