@@ -10,7 +10,6 @@ public class CollisionHelper : MonoBehaviour
   Collision2D foreign;
 
   void OnCollisionEnter2D(Collision2D foreign_) {
-    Debug.Log("COLLIDING");
     collision = true;
     foreign = foreign_;
   }

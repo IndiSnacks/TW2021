@@ -17,9 +17,10 @@ public class Player_Input : MonoBehaviour
     bool dash;
 
     public CollisionHelper ch;
+    private bool colliding;
 
     void Start() {
-
+      colliding = false;
     }
 
     //getting player input
@@ -36,9 +37,10 @@ public class Player_Input : MonoBehaviour
 
        movement_direction *= max_speed;
 
-       if(ch.collision) {
+       if(!colliding && ch.collision) {
          Debug.Log("Colliding");
        }
+       colliding = ch.collision;
     }
 
     //Moving the player
@@ -49,9 +51,9 @@ public class Player_Input : MonoBehaviour
         velocity += move_friction * diff * Time.fixedDeltaTime;
 
         if(!dash && Input.GetKeyDown("space")) {
-          dash = true;
           velocity += dash_speed * movement_direction;
         }
+        dash = Input.GetKeyDown("space");
 
         transform.Translate(velocity * Time.fixedDeltaTime);
     }
