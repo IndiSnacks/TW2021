@@ -326,10 +326,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d645ec06d55a6499b8043b1a97bfdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_speed: 10
+  max_speed: 5
   move_friction: 15
-  dash_speed: 5
+  dash_speed: 6
   transform: {fileID: 557823745}
+  field: {fileID: 1953098054}
   ch: {fileID: 557823748}
 --- !u!58 &557823747
 CircleCollider2D:

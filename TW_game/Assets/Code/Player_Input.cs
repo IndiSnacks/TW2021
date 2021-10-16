@@ -16,11 +16,16 @@ public class Player_Input : MonoBehaviour
 
     bool dash;
 
+    public GameObject field;
+    public Transform fieldBox;
+
     public CollisionHelper ch;
     private bool colliding;
 
     void Start() {
+
       colliding = false;
+      fieldBox = field.GetComponent<Transform>();
     }
 
     //getting player input
@@ -56,5 +61,20 @@ public class Player_Input : MonoBehaviour
         dash = Input.GetKeyDown("space");
 
         transform.Translate(velocity * Time.fixedDeltaTime);
+
+        Vector2 position = transform.position;
+        float x = position[0];
+        float y = position[1];
+
+        float fieldRight = fieldBox.localScale[0] / 2;
+        float fieldTop = fieldBox.localScale[1] / 2;
+
+        if(x < -fieldRight) position[0] = -fieldRight;
+        if(x > fieldRight)  position[0] = fieldRight;
+
+        if(y < -fieldTop) position[1] = -fieldTop;
+        if(y > fieldTop)  position[1] = fieldTop;
+
+        transform.position = position;
     }
 }
